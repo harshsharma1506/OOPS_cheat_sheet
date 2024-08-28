@@ -10,7 +10,8 @@
 
 #### 2. LOts of syntax help 
 
-```CLASS sub_class Definition Inheriting From super_class
+```
+CLASS sub_class Definition Inheriting From super_class
 Public Section. 
 METHODS: Addition1 Redefinition. 
 ENDCLASS.

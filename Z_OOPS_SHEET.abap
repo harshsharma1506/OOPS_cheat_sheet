@@ -2,6 +2,7 @@ REPORT z_oops_sheet.
 
 CLASS lcl_sales DEFINITION.
   PUBLIC SECTION.
+  INTERFACES: ZIF_DPK_KB_SORT_DEF. " using an interface which is in SE24 this is encapsulation
     METHODS:
       get_order,
       chk_private.
@@ -25,6 +26,12 @@ CLASS lcl_sales IMPLEMENTATION.
     IF sy-subrc = 0.
       WRITE: 'I am protected I can be called within this class or within inherited'.
     ENDIF.
+  ENDMETHOD.
+  METHOD ZIF_DPK_KB_SORT_DEF~get_output.
+    SELECT SINGLE vbeln, ernam FROM vbak WHERE erdat = @sy-datum INTO @DATA(ls_vbak).
+      IF sy-subrc = 0.
+        write ls_vbak.
+      ENDIF.
   ENDMETHOD.
   METHOD chk_private.
     me->get_order_priv( ). " I cant be accessed via inherited class whereas the get_order_100 can be.
@@ -82,11 +89,13 @@ CLASS lcl_finale IMPLEMENTATION.
 ENDCLASS.
 
 START-OF-SELECTION.
+
   DATA(lv_var) = NEW lcl_sales( ).
   lv_var->get_order( ).
+  lv_var->zif_dpk_kb_sort_def~get_output( ). " encapsulated call
   DATA(lv_var_1) = NEW lcl_sales_child( ).
   lv_var_1->get_order( ).
   lv_var_1->get_more_order( ).
   DATA(lv_var_2) = NEW lcl_finale( ).
-  lv_var_2->have_fun( ).             
+  lv_var_2->have_fun( ).
   lv_var_2->get_order_abs( ).

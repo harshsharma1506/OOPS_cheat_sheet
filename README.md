@@ -8,13 +8,14 @@
 
 ![image](https://github.com/user-attachments/assets/7b59204a-7102-40c9-b229-e084e0b6b4df)
 
-#### 2. Polymorphism via ( Class defintion ) METHODS: < METHOD NAME > REDEFINITION 
+#### 2. LOts of syntax help 
 
-```CLASS sub_class Definition Inheriting From super_class
-Public Section. 
+```CLASS sub_class Definition Inheriting From super_class```
+```Public Section. 
 METHODS: Addition1 Redefinition. 
 ENDCLASS.
 
+"Abstraction Syntax 
 CLASS abstract_class DEFINITION ABSTRACT.
   PUBLIC SECTION.
     METHODS: abstract_method ABSTRACT,
@@ -22,9 +23,13 @@ CLASS abstract_class DEFINITION ABSTRACT.
                             " objects or anything always inherit
 ENDCLASS.```
 
+"Interface syntax ( Local ) 
 INTERFACE <intf_name>. 
 DATA..... 
 CLASS-DATA..... 
 METHODS..... 
 CLASS-METHODS..... 
 ENDINTERFACE.```
+
+"NEW way of creating object
+DATA(lo_obj) = NEW lcl_name( ).

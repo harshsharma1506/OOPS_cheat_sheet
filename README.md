@@ -4,31 +4,31 @@
 
 
 #### 1. Inheritance via DEFINITION INHERITING FROM, along with PUBLIC , PRIVATE AND PROTECTED access control 
-`CLASS <subclass> DEFINITION INHERITING FROM <superclass>.`
+```CLASS <subclass> DEFINITION INHERITING FROM <superclass>.```
 
 ![image](https://github.com/user-attachments/assets/7b59204a-7102-40c9-b229-e084e0b6b4df)
 
 #### 2. Polymorphism via ( Class defintion ) METHODS: < METHOD NAME > REDEFINITION 
 
-`CLASS sub_class Definition Inheriting From super_class. 
+```CLASS sub_class Definition Inheriting From super_class
 Public Section. 
 METHODS: Addition1 Redefinition. 
-ENDCLASS. `
+ENDCLASS. ```
 
 #### 3. Abstraction  via DEFINTION ABSTRACT
 
-`CLASS abstract_class DEFINITION ABSTRACT.
+```CLASS abstract_class DEFINITION ABSTRACT.
   PUBLIC SECTION.
     METHODS: abstract_method ABSTRACT,
              normal_method. " this can have its implementation but abstract is always redefined and abstract class can never be called via 
                             " objects or anything always inherit
-ENDCLASS.`
+ENDCLASS.```
 
 #### 4. Encapsulation via Interface 
 
-`INTERFACE <intf_name>. 
+```NTERFACE <intf_name>. 
 DATA..... 
 CLASS-DATA..... 
 METHODS..... 
 CLASS-METHODS..... 
-ENDINTERFACE.`
+ENDINTERFACE.```

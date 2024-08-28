@@ -13,20 +13,16 @@
 ```CLASS sub_class Definition Inheriting From super_class
 Public Section. 
 METHODS: Addition1 Redefinition. 
-ENDCLASS. ```
+ENDCLASS.
 
-#### 3. Abstraction  via DEFINTION ABSTRACT
-
-```CLASS abstract_class DEFINITION ABSTRACT.
+CLASS abstract_class DEFINITION ABSTRACT.
   PUBLIC SECTION.
     METHODS: abstract_method ABSTRACT,
              normal_method. " this can have its implementation but abstract is always redefined and abstract class can never be called via 
                             " objects or anything always inherit
 ENDCLASS.```
 
-#### 4. Encapsulation via Interface 
-
-```NTERFACE <intf_name>. 
+INTERFACE <intf_name>. 
 DATA..... 
 CLASS-DATA..... 
 METHODS..... 

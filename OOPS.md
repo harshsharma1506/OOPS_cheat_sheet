@@ -167,5 +167,34 @@ START-OF-SELECTION.
   lo_obj->perform_basic_task( ).
   lo_obj->perform_medium_task( ).
   lo_obj->perform_critical_task( ).
-
 ```
+One day, a co worker of the manager became very jealous, he was not able to understand the mastermind's plan behind all the design so, he thought of copying the designs and selling his own machines , such a crooked fellow !
+
+## Inheritance 
+
+He inherited all the operations that the master machine had and placed them in his own machine 
+
+```abap
+CLASS lcl_mach_copy DEFINITION INHERITING FROM lcl_mach_master.
+  PUBLIC SECTION.
+    METHODS: get_privacy_protection,
+             perform_basic_task REDEFINITION.
+ENDCLASS.
+
+CLASS lcl_mach_copy IMPLEMENTATION.
+  METHOD get_privacy_protection.
+    me->medium_task_operate( ).
+    me->critical_task_operate( ).
+    me->get_machine_started( ).
+    me->medium_task_operate( ).
+  ENDMETHOD.
+  method perform_basic_task.
+  write ' I am not a copy !!'.
+  ENDMETHOD.
+ENDCLASS.
+```
+After copying everything, he sufferred a huge loss because he didn't know OO-ABAP as his previous manager. 
+
+![image](https://github.com/user-attachments/assets/2876ccc7-fc32-45e7-99ee-bb99dd00c51e)
+
+Moral of the story - > Be good at ABAP

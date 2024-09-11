@@ -215,6 +215,38 @@ method perform_basic_task.
 ENDMETHOD.
 ```
 
+## Encapsulation 
+
+```abap
+INTERFACE if_vbak.
+   DATA: ?? 
+   METHODS: get_vbak.
+ENDINTERFACE.
+```
+```abap
+interface Z_TEST_HAR101
+  public .
+
+
+  methods TEACH_JM
+    importing
+      !I_JM1 type I .
+endinterface.
+```
+
+```abap
+CLASS lcl_mach_master DEFINITION.
+  PUBLIC SECTION.  "part of the machine easily available
+    INTERFACES: z_test_har101.
+ENDCLASS.
+
+CLASS lcl_mach_master IMPLEMENTATION.
+  METHOD z_test_har101~teach_jm.
+    WRITE i_jm1.
+  ENDMETHOD.
+ENDCLASS.
+```
+
 Moral of the story - > Be good at ABAP
 
 

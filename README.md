@@ -389,14 +389,15 @@ Result as follows -
 
 ![image](https://github.com/user-attachments/assets/c8009376-0c4b-4a91-9fbb-d26f5dd4f2cb)
 
-It workes fine !
+It works fine !
 
 ### Returning 
 
 For returning parameter, always pass by value is checked, this is by default by SAP 
 ![image](https://github.com/user-attachments/assets/eb6262a8-36bc-44c1-8651-27974ba77c62)
 
-With these principles, Manager of JM factory became the best known manager in the town !
 
+## END 
+With these principles, Manager of JM factory became the best known manager in the town !
 Moral of the story - > Be good at ABAP
 

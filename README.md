@@ -215,25 +215,27 @@ method perform_basic_task.
 ENDMETHOD.
 ```
 
+Since the incident of that cunning fellow, the manager discovered the ways of hiding his actual implemnetations in the interfaces and letting the actual machine work its magic in the implemnenting class. 
+
 ## Encapsulation 
 
+Basic Syntax 
 ```abap
 INTERFACE if_vbak.
    DATA: ?? 
    METHODS: get_vbak.
 ENDINTERFACE.
 ```
+Definition 
 ```abap
 interface Z_TEST_HAR101
   public .
-
-
   methods TEACH_JM
     importing
       !I_JM1 type I .
 endinterface.
 ```
-
+Implementation 
 ```abap
 CLASS lcl_mach_master DEFINITION.
   PUBLIC SECTION.  "part of the machine easily available
@@ -246,12 +248,48 @@ CLASS lcl_mach_master IMPLEMENTATION.
   ENDMETHOD.
 ENDCLASS.
 ```
+The manager also learned about the concept of abstractiion , where he would have the abstract class with at least one abstract method
 
-Moral of the story - > Be good at ABAP
+ABSTRACT class can't be instantiated !
+```abap
+CLASS lcl_mach_abstract DEFINITION ABSTRACT.
+  PUBLIC SECTION.
+    METHODS: start_abstraction ABSTRACT,
+      start_normal.
+ENDCLASS.
+
+CLASS lcl_mach_abstract IMPLEMENTATION.
+  METHOD start_normal.
+    WRITE: 'I am normal'.
+  ENDMETHOD.
+ENDCLASS.
+```
+
+If you instantiate - 
+
+![image](https://github.com/user-attachments/assets/e60dc4a7-ffe3-4de6-a410-ef0d16ebce80)
+
+Using Abstract class via inheritance 
+
+```abap
+CLASS lcl_mach_abs_user DEFINITION INHERITING FROM lcl_mach_abstract.
+  PUBLIC SECTION.
+    METHODS: start_abstraction REDEFINITION.
+ENDCLASS.
+
+CLASS lcl_mach_abs_user IMPLEMENTATION.
+  METHOD start_abstraction.
+    WRITE: 'I am abstract and implemented'.
+  ENDMETHOD.
+ENDCLASS.
+```
+
+With these principles, Manager of JM factory became the best known manager in the town !
+### Moral of the story - > Be good at ABAP
 
 
 
-### This REPO is containing only one program which shows the use of all aspects of the OO - ABAP
+## This REPO is containing only one program which shows the use of all aspects of the OO - ABAP
 
 ![image](https://github.com/user-attachments/assets/f02fd4c2-c579-4246-8bb0-02c1555b3630)
 

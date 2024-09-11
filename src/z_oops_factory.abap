@@ -1,7 +1,8 @@
-REPORT z_oops_factory.
+REPORT z_oops_factory.abap.
 
 CLASS lcl_mach_master DEFINITION.
   PUBLIC SECTION.  "part of the machine easily available
+    INTERFACES: z_test_har101.
     METHODS: get_machine_started,
       perform_basic_task,
       perform_medium_task,
@@ -12,7 +13,33 @@ CLASS lcl_mach_master DEFINITION.
     METHODS: critical_task_operate.
 ENDCLASS.
 
+CLASS lcl_mach_abstract DEFINITION ABSTRACT.
+  PUBLIC SECTION.
+    METHODS: start_abstraction ABSTRACT,
+      start_normal.
+ENDCLASS.
+
+CLASS lcl_mach_abstract IMPLEMENTATION.
+  METHOD start_normal.
+    WRITE: 'I am normal'.
+  ENDMETHOD.
+ENDCLASS.
+
+CLASS lcl_mach_abs_user DEFINITION INHERITING FROM lcl_mach_abstract.
+  PUBLIC SECTION.
+    METHODS: start_abstraction REDEFINITION.
+ENDCLASS.
+
+CLASS lcl_mach_abs_user IMPLEMENTATION.
+  METHOD start_abstraction.
+    WRITE: 'I am abstract and implemented'.
+  ENDMETHOD.
+ENDCLASS.
+
 CLASS lcl_mach_master IMPLEMENTATION.
+  METHOD z_test_har101~teach_jm.
+    WRITE i_jm1.
+  ENDMETHOD.
   METHOD get_machine_started.
     WRITE 'I started !'.
   ENDMETHOD.
@@ -47,17 +74,16 @@ ENDCLASS.
 CLASS lcl_mach_copy DEFINITION INHERITING FROM lcl_mach_master.
   PUBLIC SECTION.
     METHODS: get_privacy_protection,
-             perform_basic_task REDEFINITION.
+      perform_basic_task REDEFINITION.
 ENDCLASS.
 
 CLASS lcl_mach_copy IMPLEMENTATION.
   METHOD get_privacy_protection.
     me->get_machine_started( ).
     me->medium_task_operate( ).
-    me->critical_task_operate( ).
   ENDMETHOD.
-  method perform_basic_task.
-  write ' I am not a copy !!'.
+  METHOD perform_basic_task.
+    WRITE ' I am not a copy !!'.
   ENDMETHOD.
 ENDCLASS.
 
@@ -68,8 +94,9 @@ DATA lo_obj TYPE REF TO lcl_mach_master. " memory hasnt been assigned - no use !
 CREATE OBJECT lo_obj.
 lo_obj->get_machine_started( ).
 
-*--> after or in 7.40
+**--> after or in 7.40
   DATA(lo_obj) = NEW lcl_mach_master( ).
+  lo_obj->z_test_har101~teach_jm( i_jm1 =  1 ).
   lo_obj->get_machine_started( ).
   lo_obj->perform_basic_task( ).
   lo_obj->perform_medium_task( ).
@@ -78,3 +105,7 @@ lo_obj->get_machine_started( ).
   DATA(lo_obj1) = NEW lcl_mach_copy( ).
   lo_obj1->get_privacy_protection( ).
   lo_obj1->perform_basic_task( ).
+
+  DATA(lo_abs_use) = NEW lcl_mach_abs_user( ).
+  lo_abs_use->start_normal( ).
+  lo_abs_use->start_abstraction( ).

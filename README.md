@@ -365,9 +365,16 @@ According to SAP, pass by value is always recommended, but at times, for tables 
 
   Now, ideally an exporting parameter should always be instantiated, as we are not passing anything to it 
   in the calling program, hence, we will execute the below code - 
-
   
-
+```abap
+DO 5 TIMES.
+   zcl_test=>teach_jm( EXPORTING
+                        i_jm1 = 1
+                       IMPORTING
+                        e_jm1 = data(lv_exp)
+                      ).
+ENDDO.
+```
 
 ### Returning 
 

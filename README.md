@@ -10,7 +10,7 @@
 
 ![image](https://github.com/user-attachments/assets/7b59204a-7102-40c9-b229-e084e0b6b4df)
 
-#### 2. LOts of syntax help 
+#### 2. Syntax help 
 
 ```abap
 CLASS sub_class Definition Inheriting From super_class
@@ -326,7 +326,23 @@ One day at JM factory, one of the co workers asked him , what is the use of this
 
 ### Difference between pass by reference and pass by value 
 
+Pass by reference acts as a reference to the actual parameters, whereas pass by value makes a local copy of the parameter and then operations are performed. 
+According to SAP, pass by value is always recommended, but at times, for tables and structures pass by value may be costly for time, hence, in those case pass by reference should be used. 
+
+( If you don't check that pass value box then it would automatically be pass by reference )
+
 - Importing
+
+  So, pass by reference for importing parameter has an egffect as follows:
+  You won't be able to change the value of the importing parameter, but when using pass by value, you can
+  actually over-write the value.
+
+  ![image](https://github.com/user-attachments/assets/d55fd062-45c7-4bbe-845e-b4387c9e6548)
+
+  ![image](https://github.com/user-attachments/assets/d42398fc-18ed-4924-b535-ebafe3adc00f)
+
+  It will not give error, but if we check that box 
+  
 - Exporting
 - Returning 
 

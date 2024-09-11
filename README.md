@@ -331,9 +331,9 @@ According to SAP, pass by value is always recommended, but at times, for tables 
 
 ( If you don't check that pass value box then it would automatically be pass by reference )
 
-- Importing
+### Importing
 
-  So, pass by reference for importing parameter has an egffect as follows:
+  So, pass by reference for importing parameter has an effect as follows:
   You won't be able to change the value of the importing parameter, but when using pass by value, you can
   actually over-write the value.
 
@@ -341,10 +341,35 @@ According to SAP, pass by value is always recommended, but at times, for tables 
 
   ![image](https://github.com/user-attachments/assets/d42398fc-18ed-4924-b535-ebafe3adc00f)
 
-  It will not give error, but if we check that box 
+  It will not give error, but if we check that box
+
+  ![image](https://github.com/user-attachments/assets/e31162f8-1f4b-4191-b82a-afad6db7a45d)
+
+  Error -
+
+  ![image](https://github.com/user-attachments/assets/c4cf00a5-cad9-47ee-95b2-96d61d484335)
+
   
-- Exporting
-- Returning 
+### Exporting
+
+  For the exporting parameters, pass by value ensures that value of the parameter is initialized properly, 
+  when using pass by reference, the values are not initialized properly ! 
+  Hence, even if using the pass by reference for the tables, make sure to initialize the parameter 
+  before performing insert operations.
+
+  If we look at this example 
+
+  ![image](https://github.com/user-attachments/assets/455e6bee-ab10-44c7-8c1e-52c9d62ca822)
+
+  ![image](https://github.com/user-attachments/assets/39d7c90d-8cd5-4081-8c5a-ff10d7873109)
+
+  Now, ideally an exporting parameter should always be instantiated, as we are not passing anything to it 
+  in the calling program, hence, we will execute the below code - 
+
+  
+
+
+### Returning 
 
 With these principles, Manager of JM factory became the best known manager in the town !
 

@@ -376,7 +376,25 @@ DO 5 TIMES.
 ENDDO.
 ```
 
+It should be returning 1 everytime as exporting parameter has no value we are not providing anything to the method for exporting end right ?
+
+But here, with pass by reference - we get the non initialized values 
+
+![image](https://github.com/user-attachments/assets/fbb0150e-4acb-4343-9a43-4d82ee2143fa)
+
+So, now, we will use the checkbox ( as pass by value ) 
+Result as follows - 
+
+![image](https://github.com/user-attachments/assets/2805ef82-8295-4dec-87d9-e0f96a16e0f1)
+
+![image](https://github.com/user-attachments/assets/c8009376-0c4b-4a91-9fbb-d26f5dd4f2cb)
+
+It workes fine !
+
 ### Returning 
+
+For returning parameter, always pass by value is checked, this is by default by SAP 
+![image](https://github.com/user-attachments/assets/eb6262a8-36bc-44c1-8651-27974ba77c62)
 
 With these principles, Manager of JM factory became the best known manager in the town !
 

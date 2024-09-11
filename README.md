@@ -197,6 +197,24 @@ After copying everything, he sufferred a huge loss because he didn't know OO-ABA
 
 ![image](https://github.com/user-attachments/assets/2876ccc7-fc32-45e7-99ee-bb99dd00c51e)
 
+Just so you guys know, the cheater used polymorphism to reduce his guilt ( In ABAP, we only have over - riding :) ) 
+
+## Polymorphism 
+
+```abap
+CLASS lcl_mach_copy DEFINITION INHERITING FROM lcl_mach_master.
+  PUBLIC SECTION.
+    METHODS: get_privacy_protection,
+             perform_basic_task REDEFINITION.
+ENDCLASS.
+```
+
+```abap
+method perform_basic_task.
+  write ' I am not a copy !!'.
+ENDMETHOD.
+```
+
 Moral of the story - > Be good at ABAP
 
 
